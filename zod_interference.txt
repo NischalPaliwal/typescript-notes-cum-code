@@ -1,0 +1,10 @@
+const nameSchema = z.string();
+type Name = z.infer<typeof nameSchema>;
+
+const userSchema = z.object({
+  name: z.string(),
+  age: z.number().min(0),
+});
+
+type User = z.infer<typeof userSchema>; 
+// User is inferred as { name: string; age: number; }
